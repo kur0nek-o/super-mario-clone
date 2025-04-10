@@ -10,6 +10,7 @@ var is_going_up: bool = false
 var is_jumping: bool = false
 var is_falling: bool = false
 var last_frame_on_floor: bool = false
+var is_hurting: bool = false
 
 @onready var player_animation = $AnimatedSprite2D
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
@@ -42,6 +43,15 @@ func _physics_process(delta: float) -> void:
 	animation_handler(direction)
 	
 	move_and_slide()
+
+func knockback() -> void:
+	is_hurting = true
+	velocity.y = JUMP_VELOCITY
+	
+	if  player_animation.flip_h:
+		velocity.x = 500.0
+	else:
+		velocity.x = -500.0
 
 func handle_coyote_timer() -> void:
 	if not is_on_floor() and last_frame_on_floor and not is_jumping:
@@ -87,6 +97,12 @@ func get_jump_input_release() -> bool:
 	return Input.is_action_just_released("jump")
 
 func animation_handler(direction: float) -> void:
+	if is_hurting:
+		player_animation.play("hurting")
+		
+		await get_tree().create_timer(0.3).timeout
+		is_hurting = false
+	
 	if not is_on_floor():
 		if is_jumping:
 			player_animation.play("jumping")

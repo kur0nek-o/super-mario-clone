@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c62dwawyyno7w"]
+[gd_scene load_steps=11 format=3 uid="uid://c62dwawyyno7w"]
 
 [ext_resource type="Texture2D" uid="uid://bw1w21yw0c6jp" path="res://assets/Background/Pink.png" id="2_s3sxq"]
 [ext_resource type="Texture2D" uid="uid://bch30gynhjo5r" path="res://assets/Terrain/Terrain (16x16).png" id="3_5py54"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tyquv48hftqu" path="res://src/prefabs/finish/Finish.tscn" id="6_aiv1b"]
 [ext_resource type="PackedScene" uid="uid://btcrls253dfox" path="res://src/scenes/levels/Level2.tscn" id="6_d4voc"]
 [ext_resource type="Script" uid="uid://bw5ogtv07wrgv" path="res://src/scripts/managers/game_manager.gd" id="7_wapi5"]
+[ext_resource type="PackedScene" uid="uid://p7vulrlbfvjx" path="res://src/scenes/enemies/Mushroom.tscn" id="8_72rjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("3_5py54")
@@ -288,6 +289,14 @@ position = Vector2(601, 363)
 [node name="Finish" parent="SceneObjects" instance=ExtResource("6_aiv1b")]
 position = Vector2(1671, 352)
 target_level = ExtResource("6_d4voc")
+
+[node name="Enemies" type="Node" parent="SceneObjects"]
+
+[node name="Mushroom" parent="SceneObjects/Enemies" instance=ExtResource("8_72rjg")]
+position = Vector2(1371, 512)
+
+[node name="Mushroom2" parent="SceneObjects/Enemies" instance=ExtResource("8_72rjg")]
+position = Vector2(1093, 512)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
