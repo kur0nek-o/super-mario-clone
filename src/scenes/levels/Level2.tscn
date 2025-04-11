@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://btcrls253dfox"]
+[gd_scene load_steps=10 format=3 uid="uid://btcrls253dfox"]
 
 [ext_resource type="Texture2D" uid="uid://d1n4h1c851tec" path="res://assets/Background/Purple.png" id="2_phr8j"]
 [ext_resource type="Texture2D" uid="uid://bch30gynhjo5r" path="res://assets/Terrain/Terrain (16x16).png" id="3_6y88q"]
 [ext_resource type="PackedScene" uid="uid://dfjmqq8v3g50y" path="res://src/scenes/player/player.tscn" id="4_35wek"]
 [ext_resource type="PackedScene" uid="uid://dttywpvtnwqma" path="res://main.tscn" id="5_phr8j"]
+[ext_resource type="PackedScene" uid="uid://p7vulrlbfvjx" path="res://src/scenes/enemies/Mushroom.tscn" id="6_tgcqn"]
 [ext_resource type="PackedScene" uid="uid://tyquv48hftqu" path="res://src/prefabs/finish/Finish.tscn" id="6_xm78j"]
 [ext_resource type="Script" uid="uid://bw5ogtv07wrgv" path="res://src/scripts/managers/game_manager.gd" id="7_y3ehi"]
 
@@ -291,6 +292,9 @@ position = Vector2(155, 256)
 [node name="Finish" parent="SceneObjects" instance=ExtResource("6_xm78j")]
 position = Vector2(1018, 448)
 target_level = ExtResource("5_phr8j")
+
+[node name="Mushroom" parent="SceneObjects" instance=ExtResource("6_tgcqn")]
+position = Vector2(819, 479)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

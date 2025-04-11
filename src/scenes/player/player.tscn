@@ -271,8 +271,9 @@ texture_filter = 1
 position = Vector2(-1, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_usugt")
-animation = &"hurting"
+animation = &"running"
 autoplay = "idle"
+frame_progress = 0.38955
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3qshy")
